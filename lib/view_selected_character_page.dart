@@ -20,6 +20,8 @@ class ViewSelectedCharacterPage extends HookConsumerWidget {
 
   @override
   Widget build(context, ref) {
+    final description = character.value.Text.split('-')..removeAt(0);
+    final descriptionString = description.join('-');
     return character.value.Text == '' ? const SizedBox() : Scaffold(
       appBar: AppBar(
         title: Text(character.value.Text.split('-')[0]),
@@ -33,7 +35,7 @@ class ViewSelectedCharacterPage extends HookConsumerWidget {
           children: [
             _buildIcon(),
             const Padding(padding: EdgeInsets.all(16)),
-            Text(character.value.Text.split('-')[1], style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: Colors.black, decoration: TextDecoration.none)),
+            Text(descriptionString, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: Colors.black, decoration: TextDecoration.none)),
           ],
         ),
       ),
